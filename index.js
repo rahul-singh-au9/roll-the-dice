@@ -9,6 +9,7 @@ function rollTheDice(UserGuessedNumber) {
     "#selectedNumber"
   ).innerText = `Selected Variable : ${UserGuessedNumber}`;
   startCounting();
+  document.querySelector("#result").innerHTML = "";
   setTimeout(function () {
     diceNumber = Math.floor(Math.random() * 6) + 1;
     diceImageSource = "/dice" + diceNumber + ".png";
@@ -21,11 +22,12 @@ function rollTheDice(UserGuessedNumber) {
       Score++;
       document.querySelector("#score").innerText = `Score : ${Score}`;
     } else {
-      document.querySelector("#result").innerHTML = "Your Guess was wrong!";
-      Score--;
-      document.querySelector("#score").innerText = `Score : ${Score}`;
+      document.querySelector("#result").innerHTML =
+        "Your Guess was wrong! Try again!!";
+      // Score--;
+      // document.querySelector("#score").innerText = `Score : ${Score}`;
     }
-  }, 3000);
+  }, 4000);
 }
 
 var timer;
